@@ -78,3 +78,8 @@ private String email;
 @Value("${foo.team}")
 private String team;
 ---
+
+Bean Scope:
+Default scope is singleton
+@Scope("singleton") same memory refrence
+@Scope("prototype") create seperate instance for each call, different memory refrences
