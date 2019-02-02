@@ -7,6 +7,8 @@ import org.springframework.stereotype.Component;
 @Component // The default bean id will be tennisCoach
 public class TennisCoach implements Coach {
 
+	@Autowired
+	// Field Injection, using Java Tech called Reflection
 	private FortuneService fortuneService;
 	
 	// define default constructor to test
@@ -19,7 +21,7 @@ public class TennisCoach implements Coach {
 	
 	/*
 	@Autowired 
-//  Constructor Injection - There is only one fortune service which implements the interface FortuneServce i.e. HappyFortuneService. So this Autowire annotation just assign it to theForutnueService and we can call te function insed getDailyFortune as fortuneService.getFortune() as below 
+  	// Constructor Injection - There is only one fortune service which implements the interface FortuneServce i.e. HappyFortuneService. So this Autowire annotation just assign it to theForutnueService and we can call te function insed getDailyFortune as fortuneService.getFortune() as below 
 	public TennisCoach(FortuneService theFortuneService) {
 		
 		fortuneService = theFortuneService;
@@ -38,7 +40,8 @@ public class TennisCoach implements Coach {
 	}
 	*/
 	
-	// Autowire any method like setter method
+	/*	
+	// Autowire any method like setter method - Method Injection
 	@Autowired
 	public void doSomeCrazyStuff(FortuneService theFortuneService) {
 		
@@ -46,6 +49,7 @@ public class TennisCoach implements Coach {
 		fortuneService = theFortuneService;
 		
 	}
+	*/
 	
 	@Override
 	public String getDailyWorkout() {
