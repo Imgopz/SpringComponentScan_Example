@@ -16,7 +16,8 @@ public class AnnotationDemoApp {
 		
 		// get the bean from the container
 		//Coach theCoach = context.getBean("thatSillyCoach", Coach.class);
-		Coach theCoach = context.getBean("tennisCoach", Coach.class); //using default bean id
+		//Coach theCoach = context.getBean("tennisCoach", Coach.class); //using default bean id
+		Coach theCoach = context.getBean("cricketCoach", Coach.class);
 		
 		// call a method on the bean
 		System.out.println(theCoach.getDailyWorkout());
