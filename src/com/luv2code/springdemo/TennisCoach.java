@@ -9,7 +9,8 @@ import org.springframework.stereotype.Component;
 public class TennisCoach implements Coach {
 
 	@Autowired
-	@Qualifier("happyFortuneService") // Qualifier annotations with default bean id will help this autowired field to choose exact component in this case fortuneService
+	@Qualifier("randomFortuneService") // Qualifier annotations with default bean id will help this autowired field to choose exact component in this case fortuneService
+	// In case of RESTFortuneService, the default beanId wont work because the name contains all the first five chars capital, so feel free to use custom bean id
 	// Field Injection, using Java Tech called Reflection
 	private FortuneService fortuneService;
 	
