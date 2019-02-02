@@ -93,3 +93,8 @@ Spring config with Java code:
 Create a config.java file and mention @configuration annotation
 initialize context with AnnotationConfigApplicationContext in main app
 We can manually create beans in this config file and use it in the main app
+
+Injecting values from properties files:
+Create a properties file and load it into spring config
+Reference value from properties file
+@Value annotation is used to get value and assign to variable
