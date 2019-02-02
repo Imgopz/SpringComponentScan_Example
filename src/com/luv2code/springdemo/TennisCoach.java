@@ -7,11 +7,14 @@ import org.springframework.stereotype.Component;
 //@Component("thatSillyCoach") // Spring will automatically register this bean (i.e: Object)
 @Component // The default bean id will be tennisCoach
 public class TennisCoach implements Coach {
-
+	
+	/*
 	@Autowired
 	@Qualifier("randomFortuneService") // Qualifier annotations with default bean id will help this autowired field to choose exact component in this case fortuneService
 	// In case of RESTFortuneService, the default beanId wont work because the name contains all the first five chars capital, so feel free to use custom bean id
 	// Field Injection, using Java Tech called Reflection
+	private FortuneService fortuneService;
+	*/
 	private FortuneService fortuneService;
 	
 	// define default constructor to test
@@ -20,6 +23,14 @@ public class TennisCoach implements Coach {
 		System.out.println(">> TennisCoach: Inside default constructor");
 		
 	}
+	
+	@Autowired
+    public TennisCoach(@Qualifier("randomFortuneService") FortuneService theFortuneService) {
+
+        System.out.println(">> TennisCoach: inside constructor using @autowired and @qualifier");
+        
+        fortuneService = theFortuneService;
+    }
 	
 	
 	/*
