@@ -1,0 +1,80 @@
+Component Scanning:
+1. Enable component scanning in Spring config file
+2. Add the @Component Annotation in your Java classes
+3. Retrieve bean from Spring Container
+
+@Component("thatSillyCoach") -> thatSillyCoach is a custom beanId
+if we did not mention anything, the class name with firt letter lower case
+will be taken as default beanId eg. TennisCoach -> tennisCoach
+
+Bean means object in Java
+
+Dependency Injection:
+1. Spring uses autowiring for DI
+2. Spring will look for a class that matches the property
+match by type: class or interface	
+3. Spring will automatically inject it... hence it is autowired
+	a. Constructor Injection
+	b. Setter Injection
+	c. Field Injection
+
+Constructor Injection:
+1. Define the dependency interface and classes
+2. Create a constructor in your class for injections
+3. Configure the dependency injection with @Autowired Annotation
+
+Setter Injection:
+1. Create setter method(S) in your class for injections
+2. Configure the dependency injection with @Autowired Annotation
+
+Field Injection:
+1. Add @Autowired annotation directly on to the field
+
+We can use any one of these three type on Injection
+
+What if more than one fortune service. say eg. HappyFortuneService
+@Qualifier("happyFortuneService") - give bean id or use default class name
+as bean id for each fortune service
+and mention in the Field on which you are going to autowire
+Eg.
+@Autowired
+@Qualifier("happyFortuneService")
+private FortuneService fortuneService; -> Field Injection
+
+
+FAQ: How to inject properties file using Java annotations
+
+
+
+Answer:
+
+This solution will show you how inject values from a properties file using annotatons. The values will no longer be hard coded in the Java code.
+
+1. Create a properties file to hold your properties. It will be a name value pair.  
+
+New text file:  src/sport.properties
+
+foo.email=myeasycoach@luv2code.com
+foo.team=Silly Java Coders
+Note the location of the properties file is very important. It must be stored in src/sport.properties
+
+2. Load the properties file in the XML config file.
+
+File: applicationContext.xml
+
+Add the following lines:
+
+    <context:property-placeholder location="classpath:sport.properties"/>  
+
+This should appear just after the <context:component-scan .../> line
+
+3. Inject the properties values into your Swim Coach: SwimCoach.java
+
+   
+
+@Value("${foo.email}")
+private String email;
+    
+@Value("${foo.team}")
+private String team;
+---
