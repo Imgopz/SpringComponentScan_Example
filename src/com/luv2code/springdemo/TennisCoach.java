@@ -1,6 +1,7 @@
 package com.luv2code.springdemo;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 //@Component("thatSillyCoach") // Spring will automatically register this bean (i.e: Object)
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Component;
 public class TennisCoach implements Coach {
 
 	@Autowired
+	@Qualifier("happyFortuneService") // Qualifier annotations with default bean id will help this autowired field to choose exact component in this case fortuneService
 	// Field Injection, using Java Tech called Reflection
 	private FortuneService fortuneService;
 	
